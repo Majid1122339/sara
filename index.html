@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 21st Birthday Sarah!</title>
+  <style>
+    body {
+      margin: 0;
+      background: pink;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      color: white;
+      font-size: 3rem;
+      margin-top: 2rem;
+      text-shadow: 2px 2px hotpink;
+      animation: pop 1s ease-in-out infinite alternate;
+    }
+    .arabic-message {
+      font-size: 1.5rem;
+      color: white;
+      margin: 1rem auto;
+      max-width: 90%;
+      direction: rtl;
+      line-height: 1.8;
+      padding: 1rem;
+      background-color: rgba(255, 105, 180, 0.3);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+      animation: fadeIn 3s ease-in-out;
+    }
+    .photo-container {
+      margin: 1rem auto;
+    }
+    .photo-container img {
+      width: 200px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+      animation: fadeIn 2s ease-in-out;
+    }
+    .play-button {
+      background-color: hotpink;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 0.75rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px white;
+      margin-top: 1.5rem;
+      animation: pop 1s ease-in-out infinite alternate;
+    }
+    .play-button:hover {
+      background-color: deeppink;
+    }
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .cake {
+      width: 120px;
+      height: 160px;
+      margin: 20px auto;
+      position: relative;
+      animation: bounce 2s infinite ease-in-out;
+    }
+    .cake .layer {
+      position: absolute;
+      width: 100%;
+      height: 40px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ff69b4;
+    }
+    .cake .layer:nth-child(1) { top: 0; }
+    .cake .layer:nth-child(2) { top: 40px; background: #ffc0cb; }
+    .cake .layer:nth-child(3) { top: 80px; background: #ff69b4; }
+    .cake .candle {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      width: 8px;
+      height: 20px;
+      background: orange;
+      transform: translateX(-50%);
+    }
+    .cake .flame {
+      width: 10px;
+      height: 10px;
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: flicker 0.2s infinite alternate;
+    }
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); opacity: 1; }
+      100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatUp 5s linear infinite;
+      z-index: 1;
+    }
+    .heart:before,
+    .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart:before { top: -10px; left: 0; }
+    .heart:after { left: -10px; top: 0; }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-600px) scale(1.2); opacity: 0; }
+    }
+    .firework {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: gold;
+      border-radius: 50%;
+      animation: explode 1.2s ease-out forwards;
+      z-index: 0;
+    }
+    @keyframes explode {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy 21st Birthday to You, Sarah! 🎉🎂💖</h1>
+  <div class="arabic-message">
+    كل عام وانتي بخير وسنة جديده مليانه سعاده وفرح يارب وياسارتي و سروري واتمنى انه مابي سنة جديده لك تبدا وانتي زعلانه مني :( واعتذر اني زعلتك وتوبه ازعلك لاني ما اقدر ولا قدها اسبوع لا سرور في حياتي ياسروري اسف <3
+  </div>
+  <div class="photo-container">
+    <img src="sarah_photo.jpg" alt="Sarah Photo">
+  </div>
+  <button class="play-button" onclick="window.open('https://www.youtube.com/watch?v=4AG2kwxTjmg', '_blank')">💖 Play Our Song 💖</button>
+  <div class="cake">
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    function createFirework() {
+      const firework = document.createElement('div');
+      firework.className = 'firework';
+      firework.style.left = Math.random() * 100 + 'vw';
+      firework.style.top = '100vh';
+      firework.style.animation = 'explode 1.5s ease-out forwards';
+      firework.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      document.body.appendChild(firework);
+      setTimeout(() => firework.remove(), 1500);
+    }
+    setInterval(createHeart, 100);
+    setInterval(createFirework, 150);
+  </script>
+</body>
+</html>
